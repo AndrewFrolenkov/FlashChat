@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		529B4D5129BFCAE30074DD94 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B4D5029BFCAE30074DD94 /* UITextField + Extension.swift */; };
 		529B4D5329BFD02F0074DD94 /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B4D5229BFD02F0074DD94 /* CustomUIView.swift */; };
+		529B4D5529BFD5860074DD94 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B4D5429BFD5860074DD94 /* LoginViewController.swift */; };
 		52F2F9D429BF7FE5003C1424 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F2F9D329BF7FE5003C1424 /* AppDelegate.swift */; };
 		52F2F9D629BF7FE5003C1424 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F2F9D529BF7FE5003C1424 /* SceneDelegate.swift */; };
 		52F2F9D829BF7FE5003C1424 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F2F9D729BF7FE5003C1424 /* WelcomeViewController.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		529B4D5029BFCAE30074DD94 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
 		529B4D5229BFD02F0074DD94 /* CustomUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
+		529B4D5429BFD5860074DD94 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		52F2F9D029BF7FE5003C1424 /* FlashChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F2F9D329BF7FE5003C1424 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52F2F9D529BF7FE5003C1424 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				52F2F9D529BF7FE5003C1424 /* SceneDelegate.swift */,
 				52F2F9D729BF7FE5003C1424 /* WelcomeViewController.swift */,
 				52F2F9ED29BF9230003C1424 /* RegisterViewController.swift */,
+				529B4D5429BFD5860074DD94 /* LoginViewController.swift */,
 				52F2F9EC29BF86EA003C1424 /* Extension */,
 				52F2F9DC29BF7FE7003C1424 /* Assets.xcassets */,
 				52F2F9DE29BF7FE7003C1424 /* LaunchScreen.storyboard */,
@@ -165,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				529B4D5529BFD5860074DD94 /* LoginViewController.swift in Sources */,
 				52F2F9EA29BF86D9003C1424 /* UIButton + Extension.swift in Sources */,
 				529B4D5329BFD02F0074DD94 /* CustomUIView.swift in Sources */,
 				529B4D5129BFCAE30074DD94 /* UITextField + Extension.swift in Sources */,

@@ -1,29 +1,31 @@
 //
-//  RegisterViewController.swift
+//  LoginViewController.swift
 //  FlashChat
 //
-//  Created by Андрей Фроленков on 13.03.23.
+//  Created by Андрей Фроленков on 14.03.23.
 //
 
 import Foundation
 import UIKit
 
-class RegisterViewController: UIViewController {
+class LoginViewController: UIViewController {
     
     let emailTextField = UITextField(placeholder: "Email")
     let passwordTextField = UITextField(placeholder: "Password")
-    let registerButton = UIButton(title: "Register", titleColor: #colorLiteral(red: 0.9568627451, green: 0.7294117647, blue: 0.9803921569, alpha: 1), backgrondColor: .clear)
+    let registerButton = UIButton(title: "Log In", titleColor: #colorLiteral(red: 0.9568627451, green: 0.7294117647, blue: 0.9803921569, alpha: 1), backgrondColor: .clear)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = #colorLiteral(red: 0.8243386149, green: 0.9464728236, blue: 1, alpha: 1)
+        
         setupConstraints()
     }
+    
 }
 
 // MARK: - Setup Constraints
-extension RegisterViewController {
+extension LoginViewController {
     
     private func setupConstraints() {
         
@@ -51,12 +53,13 @@ extension RegisterViewController {
         ])
         
     }
+    
 }
 
 // MARK: - SwiftUI
 import SwiftUI
 
-struct RegisterVCProvider: PreviewProvider {
+struct LoginVCProvider: PreviewProvider {
     
     static var previews: some View {
         ContainerView().edgesIgnoringSafeArea(.all)
@@ -64,9 +67,9 @@ struct RegisterVCProvider: PreviewProvider {
     
     struct ContainerView: UIViewControllerRepresentable {
         
-        let tabBarViewController = RegisterViewController()
+        let tabBarViewController = LoginViewController()
         
-        func makeUIViewController(context: Context) -> some RegisterViewController {
+        func makeUIViewController(context: Context) -> some LoginViewController {
             return tabBarViewController
         }
         

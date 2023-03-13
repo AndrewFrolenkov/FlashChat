@@ -40,8 +40,6 @@ class WelcomeViewController: UIViewController {
         setupConstraints()
         
     }
-    
-    
 }
 
 // MARK: - Setup Constraints

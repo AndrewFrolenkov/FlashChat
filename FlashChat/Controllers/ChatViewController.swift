@@ -32,6 +32,16 @@ class ChatViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 0.5921568627, green: 0.8705882353, blue: 1, alpha: 1)
         
         setupConstraints()
+        addTargetForButton()
+    }
+    
+    private func addTargetForButton() {
+        
+       button.addTarget(self, action: #selector(sendPressed(_:)), for: .touchUpInside)
+    }
+    
+    @objc private func sendPressed(_ sender: UIButton) {
+        print("Hello")
     }
 }
 

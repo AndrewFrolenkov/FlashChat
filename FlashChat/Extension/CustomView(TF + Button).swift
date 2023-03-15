@@ -10,7 +10,7 @@ import UIKit
 
 class ViewForTFAndButton: ViewForTextField {
     
-    let button: UIButton
+   private let button: UIButton
     
     init(button: UIButton, textField: UITextField) {
         self.button = button
@@ -41,8 +41,8 @@ extension ViewForTFAndButton {
                 stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
                 stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
                 stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-                button.heightAnchor.constraint(equalToConstant: 50),
-                button.widthAnchor.constraint(equalToConstant: 50)
+                button.heightAnchor.constraint(equalToConstant: 40),
+                button.widthAnchor.constraint(equalToConstant: 40),
             ])
     }
 }

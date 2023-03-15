@@ -12,7 +12,7 @@ class LoginViewController: UIViewController {
     
     let emailTextField = UITextField(placeholder: "Email")
     let passwordTextField = UITextField(placeholder: "Password")
-    let registerButton = UIButton(title: "Log In", titleColor: #colorLiteral(red: 0.9568627451, green: 0.7294117647, blue: 0.9803921569, alpha: 1), backgrondColor: .clear)
+    let logInButton = UIButton(title: "Log In", titleColor: #colorLiteral(red: 0.9568627451, green: 0.7294117647, blue: 0.9803921569, alpha: 1), backgrondColor: .clear)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,17 @@ class LoginViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 0.8243386149, green: 0.9464728236, blue: 1, alpha: 1)
         
         setupConstraints()
+        addTargetForButton()
+    }
+    
+    private func addTargetForButton() {
+        
+        logInButton.addTarget(self, action: #selector(logInPressed(_:)), for: .touchUpInside)
+    }
+    
+    @objc private func logInPressed(_ sender: UIButton) {
+        let registerController = ChatViewController()
+        self.navigationController?.pushViewController(registerController, animated: true)
     }
     
 }
@@ -34,7 +45,7 @@ extension LoginViewController {
         
         let stackView = UIStackView(arrangedSubviews: [emailView,
                                                       passwordView,
-                                                      registerButton],
+                                                       logInButton],
                                     axis: .vertical,
                                     spacing: 10)
         stackView.distribution = .fillEqually

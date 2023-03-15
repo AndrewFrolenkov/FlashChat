@@ -19,6 +19,18 @@ class RegisterViewController: UIViewController {
         
         view.backgroundColor = #colorLiteral(red: 0.8243386149, green: 0.9464728236, blue: 1, alpha: 1)
         setupConstraints()
+        addTargetForButton()
+    }
+    
+    private func addTargetForButton() {
+        
+        registerButton.addTarget(self, action: #selector(registerPressed(_:)), for: .touchUpInside)
+    }
+    
+    @objc private func registerPressed(_ sender: UIButton) {
+        
+        let registerController = ChatViewController()
+        self.navigationController?.pushViewController(registerController, animated: true)
     }
 }
 

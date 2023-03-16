@@ -148,7 +148,6 @@
 				52F2F9CC29BF7FE5003C1424 /* Sources */,
 				52F2F9CD29BF7FE5003C1424 /* Frameworks */,
 				52F2F9CE29BF7FE5003C1424 /* Resources */,
-				083BA87877D275FE7E713A69 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -205,23 +204,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		083BA87877D275FE7E713A69 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FlashChat/Pods-FlashChat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FlashChat/Pods-FlashChat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FlashChat/Pods-FlashChat-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		40EF545940282792D4D0E805 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

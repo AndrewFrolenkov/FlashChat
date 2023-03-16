@@ -1,4 +1,4 @@
-platform :ios, '9.0'
+platform :ios, '13.0'
 
 target 'FlashChat' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -6,6 +6,5 @@ target 'FlashChat' do
 
   # Pods for FlashChat
 
-  pod 'CLTypingLabel'
 
 end

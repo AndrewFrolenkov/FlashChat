@@ -46,7 +46,7 @@ class ChatViewController: UIViewController {
     private func addBarButtonItem() {
         
         let logOutBarButton = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
-        
+        title = K.appName
         navigationItem.hidesBackButton = true
         navigationItem.rightBarButtonItem = logOutBarButton
     }

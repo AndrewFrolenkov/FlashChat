@@ -10,15 +10,23 @@ import UIKit
 
 extension UITextField {
     
-    convenience init(placeholder: String , font: UIFont? = UIFont(name: "Apple SD Gothic Neo Medium", size: 25)) {
+    convenience init(text: String?, placeholder: String , font: UIFont? = UIFont(name: "Apple SD Gothic Neo Medium", size: 25)) {
 
         self.init(frame: .zero)
         
         self.textAlignment = .center
+        self.text = text
+        
+        if placeholder == "Password" {
+            self.placeholder = placeholder
+            self.isSecureTextEntry = true
+        }
         self.placeholder = placeholder
         self.font = font
         self.borderStyle = .none
         self.translatesAutoresizingMaskIntoConstraints = false
+        
+        
         
     }
 }

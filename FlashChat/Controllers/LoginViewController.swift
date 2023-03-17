@@ -7,11 +7,12 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
-    let emailTextField = UITextField(placeholder: "Email")
-    let passwordTextField = UITextField(placeholder: "Password")
+    let emailTextField = UITextField(text: "test26071994@gmail.com",placeholder: "Email")
+    let passwordTextField = UITextField(text: "1236547qwe", placeholder: "Password")
     let logInButton = UIButton(title: "Log In", titleColor: #colorLiteral(red: 0.9568627451, green: 0.7294117647, blue: 0.9803921569, alpha: 1), backgrondColor: .clear)
     
     override func viewDidLoad() {
@@ -29,8 +30,18 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func logInPressed(_ sender: UIButton) {
-        let registerController = ChatViewController()
-        self.navigationController?.pushViewController(registerController, animated: true)
+        
+        guard let email = emailTextField.text, let password = passwordTextField.text else { return }
+        let low = email.lowercased()
+        Auth.auth().signIn(withEmail: low, password: password) { [weak self] auth, error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                let registerController = ChatViewController()
+                self?.navigationController?.pushViewController(registerController, animated: true)
+            }
+        }
+        
     }
     
 }

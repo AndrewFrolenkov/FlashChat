@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class ChatViewController: UIViewController {
     
@@ -25,6 +26,12 @@ class ChatViewController: UIViewController {
         return textField
     }()
     
+    let logOutBarButton: UIBarButtonItem = {
+        let button = UIBarButtonItem()
+        button.title = "LogOut"
+        return button
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +40,25 @@ class ChatViewController: UIViewController {
         
         setupConstraints()
         addTargetForButton()
+        addBarButtonItem()
+    }
+    
+    private func addBarButtonItem() {
+        
+        let logOutBarButton = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
+        
+        navigationItem.hidesBackButton = true
+        navigationItem.rightBarButtonItem = logOutBarButton
+    }
+    
+    @objc private func logOut() {
+        let firebase = Auth.auth()
+        do {
+            try firebase.signOut()
+            navigationController?.popToRootViewController(animated: true)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
     
     private func addTargetForButton() {

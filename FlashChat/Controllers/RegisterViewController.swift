@@ -7,11 +7,12 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
     
-    let emailTextField = UITextField(placeholder: "Email")
-    let passwordTextField = UITextField(placeholder: "Password")
+    let emailTextField = UITextField(text: "test26071994@gmail.com", placeholder: "Email")
+    let passwordTextField = UITextField(text: "1236547qwe" ,placeholder: "Password")
     let registerButton = UIButton(title: "Register", titleColor: #colorLiteral(red: 0.9568627451, green: 0.7294117647, blue: 0.9803921569, alpha: 1), backgrondColor: .clear)
     
     override func viewDidLoad() {
@@ -29,8 +30,22 @@ class RegisterViewController: UIViewController {
     
     @objc private func registerPressed(_ sender: UIButton) {
         
-        let registerController = ChatViewController()
-        self.navigationController?.pushViewController(registerController, animated: true)
+        guard let email = emailTextField.text, let password = passwordTextField.text else { return }
+        let low = email.lowercased()
+        
+        Auth.auth().createUser(withEmail: low, password: password) {
+            auth, error in
+            
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                let registerController = ChatViewController()
+                self.navigationController?.pushViewController(registerController, animated: true)
+            }
+            
+        }
+        
+        
     }
 }
 

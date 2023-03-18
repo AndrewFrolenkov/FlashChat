@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		103BD5E3BB621171FB3D6E75 /* Pods_FlashChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DFA27C7FB75EA18A8B5334B /* Pods_FlashChat.framework */; };
+		52936C3629C53B2C0097E5B7 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52936C3529C53B2C0097E5B7 /* MessageCell.swift */; };
+		52936C3829C53E990097E5B7 /* ViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52936C3729C53E990097E5B7 /* ViewCell.swift */; };
 		529B4D5129BFCAE30074DD94 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B4D5029BFCAE30074DD94 /* UITextField + Extension.swift */; };
 		529B4D5329BFD02F0074DD94 /* CustomView(TF).swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B4D5229BFD02F0074DD94 /* CustomView(TF).swift */; };
 		529B4D5529BFD5860074DD94 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B4D5429BFD5860074DD94 /* LoginViewController.swift */; };
 		529B4D5729BFD8690074DD94 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B4D5629BFD8690074DD94 /* ChatViewController.swift */; };
 		529B4D5929BFDB5E0074DD94 /* CustomView(TF + Button).swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B4D5829BFDB5E0074DD94 /* CustomView(TF + Button).swift */; };
 		52D85C0529C4BD45008D6584 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D85C0429C4BD45008D6584 /* Constants.swift */; };
+		52D85C0729C4CC5B008D6584 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D85C0629C4CC5B008D6584 /* Message.swift */; };
 		52DE9DB429C3660A00A72EBA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52DE9DB329C3660A00A72EBA /* GoogleService-Info.plist */; };
 		52F2F9D429BF7FE5003C1424 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F2F9D329BF7FE5003C1424 /* AppDelegate.swift */; };
 		52F2F9D629BF7FE5003C1424 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F2F9D529BF7FE5003C1424 /* SceneDelegate.swift */; };
@@ -27,12 +30,15 @@
 
 /* Begin PBXFileReference section */
 		03F4582610DBDA3E9477F55F /* Pods-FlashChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashChat.release.xcconfig"; path = "Target Support Files/Pods-FlashChat/Pods-FlashChat.release.xcconfig"; sourceTree = "<group>"; };
+		52936C3529C53B2C0097E5B7 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		52936C3729C53E990097E5B7 /* ViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCell.swift; sourceTree = "<group>"; };
 		529B4D5029BFCAE30074DD94 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
 		529B4D5229BFD02F0074DD94 /* CustomView(TF).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomView(TF).swift"; sourceTree = "<group>"; };
 		529B4D5429BFD5860074DD94 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		529B4D5629BFD8690074DD94 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		529B4D5829BFDB5E0074DD94 /* CustomView(TF + Button).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomView(TF + Button).swift"; sourceTree = "<group>"; };
 		52D85C0429C4BD45008D6584 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		52D85C0629C4CC5B008D6584 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		52DE9DB329C3660A00A72EBA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		52F2F9D029BF7FE5003C1424 /* FlashChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F2F9D329BF7FE5003C1424 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +77,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		52D85C0829C4CCAC008D6584 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				52D85C0629C4CC5B008D6584 /* Message.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		52F2F9C729BF7FE5003C1424 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +108,7 @@
 			children = (
 				52F2F9D329BF7FE5003C1424 /* AppDelegate.swift */,
 				52F2F9D529BF7FE5003C1424 /* SceneDelegate.swift */,
+				52D85C0829C4CCAC008D6584 /* Model */,
 				529B4D5A29BFE9BD0074DD94 /* Controllers */,
 				52F2F9EC29BF86EA003C1424 /* Extension */,
 				52F2F9DC29BF7FE7003C1424 /* Assets.xcassets */,
@@ -118,6 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				52D85C0429C4BD45008D6584 /* Constants.swift */,
+				52936C3729C53E990097E5B7 /* ViewCell.swift */,
+				52936C3529C53B2C0097E5B7 /* MessageCell.swift */,
 				529B4D5229BFD02F0074DD94 /* CustomView(TF).swift */,
 				529B4D5829BFDB5E0074DD94 /* CustomView(TF + Button).swift */,
 				52F2F9EB29BF86E0003C1424 /* UIKit */,
@@ -266,9 +283,12 @@
 				529B4D5929BFDB5E0074DD94 /* CustomView(TF + Button).swift in Sources */,
 				52F2F9EE29BF9230003C1424 /* RegisterViewController.swift in Sources */,
 				52F2F9D629BF7FE5003C1424 /* SceneDelegate.swift in Sources */,
+				52936C3829C53E990097E5B7 /* ViewCell.swift in Sources */,
+				52D85C0729C4CC5B008D6584 /* Message.swift in Sources */,
 				529B4D5729BFD8690074DD94 /* ChatViewController.swift in Sources */,
 				52F2F9E829BF81D5003C1424 /* StackView + Extension.swift in Sources */,
 				52D85C0529C4BD45008D6584 /* Constants.swift in Sources */,
+				52936C3629C53B2C0097E5B7 /* MessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +435,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -443,6 +464,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -11,7 +11,15 @@ import FirebaseAuth
 
 class ChatViewController: UIViewController {
     
+    var message: [Message] = [
+        Message(sender: "1@2.com", body: "Heydfvfdbfdjbdbklnglbk ngdflkbnkldgnbkldgnbklgndlbkngkldbndglbln"),
+        Message(sender: "a@b.com", body: "Hello!"),
+        Message(sender: "1@2.com", body: "What's up"),
+        
+    ]
+    
     let tableView = UITableView(frame: .zero, style: .plain)
+    
     let button: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "paperplane.fill"), for: .normal)
@@ -41,6 +49,23 @@ class ChatViewController: UIViewController {
         setupConstraints()
         addTargetForButton()
         addBarButtonItem()
+        createTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+       
+    }
+    
+    private func createTableView() {
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
+        tableView.allowsSelection = false
+       
+        
+        tableView.register(MessageCell.self, forCellReuseIdentifier: K.cellIdentifier)
     }
     
     private func addBarButtonItem() {
@@ -69,6 +94,32 @@ class ChatViewController: UIViewController {
     @objc private func sendPressed(_ sender: UIButton) {
         print("Hello")
     }
+}
+
+// MARK: - UITableViewDelegate, UITableViewDataSource
+extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return message.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! MessageCell
+        let message = message[indexPath.row]
+        cell.viewCell.labelMessage.text = message.body
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 500
+    }
+    
+   
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
 }
 
 

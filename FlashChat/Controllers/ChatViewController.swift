@@ -8,8 +8,11 @@
 import Foundation
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class ChatViewController: UIViewController {
+    
+    let db = Firestore.firestore()
     
     var message: [Message] = [
         Message(sender: "1@2.com", body: "Heydfvfdbfdjbdbklnglbk ngdflkbnkldgnbkldgnbklgndlbkngkldbndglbln"),
@@ -50,6 +53,36 @@ class ChatViewController: UIViewController {
         addTargetForButton()
         addBarButtonItem()
         createTableView()
+        loadMessages()
+        navigationController?.navigationBar.isHidden = false
+        
+    }
+    
+    private func loadMessages() {
+       
+        db.collection(K.FStore.collectionName).order(by: K.FStore.dateField).addSnapshotListener() {  querySnapshot, error in
+            self.message = []
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                if let snapshot = querySnapshot?.documents {
+                    for doc in snapshot {
+                        let data = doc.data()
+                        if let sender = data[K.FStore.senderField] as? String,
+                           let body = data[K.FStore.bodyField] as? String {
+                             let newMessage = Message(sender: sender, body: body)
+                            self.message.append(newMessage)
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                                let index = IndexPath(row: self.message.count - 1, section: 0 )
+                                self.tableView.scrollToRow(at: index, at: .top, animated: true)
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +96,8 @@ class ChatViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
+        
+    
        
         
         tableView.register(MessageCell.self, forCellReuseIdentifier: K.cellIdentifier)
@@ -92,7 +127,22 @@ class ChatViewController: UIViewController {
     }
     
     @objc private func sendPressed(_ sender: UIButton) {
-        print("Hello")
+        guard let messageText = messageTextField.text,
+              let messageSender = Auth.auth().currentUser?.email else { return}
+       
+        db.collection(K.FStore.collectionName).addDocument(data: [K.FStore.senderField: messageSender,
+                                                                  K.FStore.bodyField:messageText,
+                                                                  K.FStore.dateField:Date().timeIntervalSince1970]) { error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("Good")
+                DispatchQueue.main.async {
+                    self.messageTextField.text = ""
+                }
+                
+            }
+        }
     }
 }
 
@@ -106,6 +156,17 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! MessageCell
         let message = message[indexPath.row]
+        if message.sender == Auth.auth().currentUser?.email {
+            cell.imageMessageTwo.isHidden = true
+            cell.imageMessage.isHidden = false
+            cell.viewCell.backgroundColor = UIColor(named: K.BrandColors.lightPurple)
+            cell.viewCell.labelMessage.textColor = .black
+        } else {
+            cell.imageMessageTwo.isHidden = false
+            cell.imageMessage.isHidden = true
+            cell.viewCell.backgroundColor = UIColor(named: K.BrandColors.purple)
+            cell.viewCell.labelMessage.textColor = .red
+        }
         cell.viewCell.labelMessage.text = message.body
         
         return cell
@@ -145,7 +206,7 @@ extension ChatViewController {
             viewChat.topAnchor.constraint(equalTo: tableView.bottomAnchor),
             viewChat.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             viewChat.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            viewChat.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            viewChat.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
             viewChat.heightAnchor.constraint(equalToConstant: 60)
         ])
     }

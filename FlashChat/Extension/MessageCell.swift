@@ -21,6 +21,14 @@ class MessageCell: UITableViewCell {
         return image
     }()
     
+    let imageMessageTwo: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "YouAvatar")
+        return image
+    }()
+    
+   
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupConstraints()
@@ -46,14 +54,16 @@ extension MessageCell {
     
     private func setupConstraints() {
         
-        let stackView = UIStackView(arrangedSubviews: [viewCell, imageMessage], axis: .horizontal, spacing: 20)
+       
+        let stackView = UIStackView(arrangedSubviews: [imageMessageTwo, viewCell, imageMessage], axis: .horizontal, spacing: 20)
         stackView.alignment = .top
         stackView.translatesAutoresizingMaskIntoConstraints = false
         imageMessage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             imageMessage.heightAnchor.constraint(equalToConstant: 40),
             imageMessage.widthAnchor.constraint(equalToConstant: 40),
-        
+            imageMessageTwo.heightAnchor.constraint(equalToConstant: 40),
+            imageMessageTwo.widthAnchor.constraint(equalToConstant: 40)
         ])
         
         contentView.addSubview(stackView)

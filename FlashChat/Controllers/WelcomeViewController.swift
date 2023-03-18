@@ -41,7 +41,10 @@ class WelcomeViewController: UIViewController {
         
         addTargetForButton()
         titleAnimation()
+       
     }
+    
+  
     
     private func titleAnimation() {
         
